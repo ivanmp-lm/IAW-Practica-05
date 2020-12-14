@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #VARIABLES#
-IPFRONT1=1.1.1.1
-IPFRONT2=2.2.2.2
+IPFRONT1=
+IPFRONT2=
 #VARIABLES#
 
 #Mostrar en pantalla los comandos que se van ejecutando
