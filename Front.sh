@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #--CAMBIAR IP POR LA DE SERVER BACKEND--
-IP_BACKEND=
+IP_BACKEND=3.87.211.22
 #--CAMBIAR IP POR LA DE SERVER BACKEND--
 
 #--VARIABLES PARA GOACCESS--
@@ -33,8 +33,8 @@ wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 tar -xzvf phpMyAdmin-latest-all-languages.tar.gz
 rm -rf phpMyAdmin-latest-all-languages.tar.gz
 mv phpMyAdmin*/ /var/www/html/phpmyadmin
-mv /var/www/html/phpmyadmin/config.sample.inc.php /var/www/html/phpmyadmin/config.inc.php
-#NECESARIO EDITAR LA LINEA SERVERS HOST CON LA IP DEL BACK-END!!
+sed -i s#PONERIPBACKEND#$IP_BACKEND# config.inc.php
+mv config.inc.php /var/www/html/phpmyadmin/config.inc.php
 apt install php-mbstring php-zip php-gd php-json php-curl -y
 phpenmod mbstring
 systemctl restart apache2
