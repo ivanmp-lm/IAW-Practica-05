@@ -22,8 +22,8 @@ mysql -u root -p$DB_ROOT_PASSWD <<< "ALTER USER 'root'@'localhost' IDENTIFIED WI
 mysql -u root -p$DB_ROOT_PASSWD <<< "FLUSH PRIVILEGES;"
 
 #Crear usuarios en MySQL
-mysql -u root -p$DB_ROOT_PASSWD <<< "CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'root';"
-mysql -u root -p$DB_ROOT_PASSWD <<< "GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'localhost';"
+mysql -u root -p$DB_ROOT_PASSWD <<< "CREATE USER 'ubuntu'@'%' IDENTIFIED BY 'root';"
+mysql -u root -p$DB_ROOT_PASSWD <<< "GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'%';"
 mysql -u root -p$DB_ROOT_PASSWD <<< "FLUSH PRIVILEGES;"
 
 #Clonar repositorio de la aplicación propuesta
