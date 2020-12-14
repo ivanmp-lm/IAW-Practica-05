@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#VARIABLES#
+IPFRONT1=1.1.1.1
+IPFRONT2=2.2.2.2
+#VARIABLES#
+
 #Mostrar en pantalla los comandos que se van ejecutando
 set -x
 
@@ -9,16 +14,12 @@ apt update
 #Instalar apache2
 apt install apache2 -y
 
-#Clonar archivos necesarios para la configuración
-rm -rf IAW-Practica-4
-git clone https://github.com/ivanmp-lm/IAW-Practica-4.git
+#Cambiar parámetros 000-default.conf
+sed -i s#IPFRONT1#$IPFRONT1# balanceador-000-default.conf
+sed -i s#IPFRONT1#$IPFRONT1# balanceador-000-default.conf
 
-#Copiar archivo 000-default.conf del repositorio clonado
-cp /IAW-Practica-4/src/000-default.conf /etc/apache2/sites-available/
-systemctl restart apache2
-
-#Eliminar archivos sobrantes
-rm -rf IAW-Practica-4
+#Copiar archivo 000-default.conf
+cp balanceador-000-default.conf /etc/apache2/sites-available/000-default.conf
 
 #Activar los módulos necesarios de Apache2
 a2enmod proxy
