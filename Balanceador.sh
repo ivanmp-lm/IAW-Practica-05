@@ -16,7 +16,7 @@ apt install apache2 -y
 
 #Cambiar parámetros 000-default.conf
 sed -i s#IPFRONT1#$IPFRONT1# balanceador-000-default.conf
-sed -i s#IPFRONT1#$IPFRONT1# balanceador-000-default.conf
+sed -i s#IPFRONT1#$IPFRONT2# balanceador-000-default.conf
 
 #Copiar archivo 000-default.conf
 cp balanceador-000-default.conf /etc/apache2/sites-available/000-default.conf
